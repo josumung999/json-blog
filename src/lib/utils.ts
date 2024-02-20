@@ -1,3 +1,4 @@
+import { Post } from "@/types"
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -23,3 +24,25 @@ export const fetcher = async (url: string) => {
   }
   return response.json();
 };
+
+export function storeAndAddPost(newPost: Post) {
+  // Check if window object is accessible
+  if (typeof window !== 'undefined') {
+    try {
+      // Retrieve existing posts or initialize an empty array
+      const storedPosts = JSON.parse(localStorage.getItem('posts') as string) || [];
+
+      // Add the new post to the array
+      storedPosts.push(newPost);
+
+      // Stringify the updated array and store it in localStorage
+      localStorage.setItem('posts', JSON.stringify(storedPosts));
+    } catch (error) {
+      console.error('Error storing posts in localStorage:', error);
+      // Handle storage errors gracefully (e.g., display a message)
+    }
+  } else {
+    console.warn('Unable to access localStorage: window object unavailable');
+    // Handle the case where window is not available (e.g., server-side rendering)
+  }
+}
