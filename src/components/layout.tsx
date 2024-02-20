@@ -16,7 +16,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({
     <>
       <Head>
         <title>
-          {title ? title + "JSON Blog" : "JSON Blog | Lorem ipsum dolorum"}
+          {title ? title + " | JSON Blog" : "JSON Blog | Lorem ipsum dolorum"}
         </title>
         {description && <meta name="description" content={description} />}
       </Head>
