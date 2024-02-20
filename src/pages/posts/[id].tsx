@@ -1,4 +1,5 @@
 import AppLayout from "@/components/layout";
+import PostComments from "@/components/post-comments";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Author, Post } from "@/types";
 import { GetStaticProps } from "next";
@@ -66,11 +67,14 @@ function SinglePost({ post, author }: SinglePostProps) {
               </div>
             </div>
           </div>
-          <div className="col-span-2">
+          <div className="col-span-2 space-y-4">
             <article className="prose lg:prose-xl">
               <h1>{post.title}</h1>
               <p>{post.body}</p>
             </article>
+            <div className="">
+              <PostComments postId={post.id} pageSize={5} />
+            </div>
           </div>
         </div>
       </div>
