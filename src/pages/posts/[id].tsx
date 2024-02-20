@@ -46,22 +46,55 @@ function SinglePost({ post, author }: SinglePostProps) {
                 <h3 className="font-medium text-sm text-slate-800">
                   {author.name}
                 </h3>
-                <p className="inline-flex items-start justify-start space-x-1 font-light text-xs text-muted-foreground">
-                  <span>Address:</span>
+                <p className="w-4/5 inline-flex items-center justify-start space-x-1 font-light text-xs text-muted-foreground">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-locate w-4 h-4"
+                    >
+                      <line x1={2} x2={5} y1={12} y2={12} />
+                      <line x1={19} x2={22} y1={12} y2={12} />
+                      <line x1={12} x2={12} y1={2} y2={5} />
+                      <line x1={12} x2={12} y1={19} y2={22} />
+                      <circle cx={12} cy={12} r={7} />
+                    </svg>
+                  </span>
                   <span className="font-medium">
-                    {author.address.suite +
-                      ", " +
-                      author.address.street +
+                    {author.address.street +
                       ", " +
                       author.address.city +
                       ", " +
                       author.address.zipcode}
                   </span>
                 </p>
-                <p className="inline-flex items-start justify-start space-x-1 font-light text-xs text-muted-foreground">
-                  <span>Company:</span>
+                <p className="w-4/5 inline-flex items-center justify-start space-x-1 font-light text-xs text-muted-foreground">
+                  <span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={24}
+                      height={24}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-briefcase w-4 h-4"
+                    >
+                      <rect width={20} height={14} x={2} y={7} rx={2} ry={2} />
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                  </span>
                   <span className="font-medium">
-                    {author.company.name + " | " + author.company.catchPhrase}
+                    {author.company.name + " | " + author.company.bs}
                   </span>
                 </p>
               </div>
