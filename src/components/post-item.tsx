@@ -6,12 +6,19 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
+import useSWR from "swr";
+import { fetcher } from "@/lib/utils";
 
 interface PostItemProps {
   post: Post;
 }
 
 export function PostItem({ post }: PostItemProps) {
+  const { data, error, isLoading } = useSWR(
+    `https://jsonplaceholder.typicode.com/users/${post.userId}`,
+    fetcher
+  );
+
   return (
     <Card className="group w-full bg-transparent border-none shadow-none">
       <CardHeader className="px-0 pt-0 pb-3">
@@ -28,11 +35,17 @@ export function PostItem({ post }: PostItemProps) {
           />
 
           <div className="absolute bottom-[8%] left-[6%] flex items-center justify-start space-x-1">
-            <Avatar className="w-6 h-6">
-              <AvatarImage src="https://picsum.photos/200" alt="@johndoe" />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-            <h3 className="font-normal text-xs text-white">Acme Corps</h3>
+            {isLoading ? (
+              <Skeleton className="w-20 h-8" />
+            ) : data ? (
+              <>
+                <Avatar className="w-6 h-6">
+                  <AvatarImage src="https://picsum.photos/200" alt="@johndoe" />
+                  <AvatarFallback>JD</AvatarFallback>
+                </Avatar>
+                <h3 className="font-normal text-xs text-white">{data.name}</h3>
+              </>
+            ) : null}
           </div>
         </Link>
       </CardHeader>
