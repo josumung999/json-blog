@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <AppLayout>
-      <div className="py-10 w-full grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="py-10 w-full grid grid-cols-2 md:grid-cols-3 gap-3 lg:gap-6">
         {isLoading ? (
           <>
             {Array.from({ length: 10 }).map((_, index: number) => (
