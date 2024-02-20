@@ -11,7 +11,7 @@ interface PostItemProps {
   post: Post;
 }
 
-function PostItem({ post }: PostItemProps) {
+export function PostItem({ post }: PostItemProps) {
   return (
     <Card className="w-full bg-transparent border-none shadow-none">
       <CardHeader className="px-0 pt-0 pb-3">
@@ -63,7 +63,9 @@ function PostItem({ post }: PostItemProps) {
       </CardHeader>
       <CardContent className="px-2 space-y-2">
         <h2 className="text-sm lg:text-base font-semibold text-prime">
-          {post.title}
+          {post.title.length > 35
+            ? post.title.slice(0, 35) + "..."
+            : post.title}
         </h2>
       </CardContent>
     </Card>
