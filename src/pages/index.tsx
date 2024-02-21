@@ -60,7 +60,7 @@ export default function Home() {
     <AppLayout>
       <div className="py-10 w-full space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold text-primary-foreground">
+          <h1 className="text-xl font-bold text-muted-foreground">
             Trending Now
           </h1>
           <CreatePostForm />
@@ -78,7 +78,7 @@ export default function Home() {
           )}
         </div>
         {isReachingEnd && (
-          <p className="text-gray-500 text-center">
+          <p className="text-lg text-muted-foreground text-center">
             All posts have been fetched.
           </p>
         )}

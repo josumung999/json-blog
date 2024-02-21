@@ -106,7 +106,7 @@ function SinglePost({ post, author }: SinglePostProps) {
               <p>{post.body}</p>
             </article>
             <div className="">
-              <PostComments postId={post.id} pageSize={5} />
+              <PostComments postId={post.id} pageSize={2} />
             </div>
           </div>
         </div>
