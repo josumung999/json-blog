@@ -12,20 +12,6 @@ interface PostCommentsProps {
 }
 
 function PostComments({ postId, pageSize = 10 }: PostCommentsProps) {
-  // const [pageNumber, setPageNumber] = useState(1);
-  // const { data, error, isLoading } = useSWR(
-  //   `https://jsonplaceholder.typicode.com/posts/${postId}/comments?_page=${pageNumber}&_limit=${pageSize}`,
-  //   fetcher
-  // );
-  // const totalPages = Math.ceil(data?.length / pageSize) || 0;
-
-  // const handlePageChange = (pageNumber: React.SetStateAction<number>) => {
-  //   setPageNumber(pageNumber);
-  // };
-
-  // if (error) return <div>Error: {error.message}</div>;
-  // if (!data) return <div>Loading...</div>;
-
   const getKey = (pageIndex: number, previousPageData: string | any[]) => {
     if (previousPageData && !previousPageData.length) return null; // Reached end
 
@@ -97,7 +83,7 @@ function PostComments({ postId, pageSize = 10 }: PostCommentsProps) {
       )}
       {isReachingEnd && (
         <p className="text-lg text-muted-foreground text-center">
-          All posts have been fetched.
+          All comments have been fetched.
         </p>
       )}
     </div>
